@@ -1,0 +1,31 @@
+origen,destino,costo,tiempo_minutos,conexiones,cluster
+Bogota,Villa de Leyva,3,180,0,2
+Bogota,Medellin,8,300,0,1
+Bogota,Eje Cafetero,7,240,0,1
+Medellin,Eje Cafetero,5,180,0,2
+Medellin,Cartagena,10,360,0,1
+Cartagena,Santa Marta,3,150,0,2
+Santa Marta,Parque Tayrona,2,60,0,2
+Bogota,Cartagena,12,600,1,0
+Bogota,Santa Marta,14,660,2,0
+Bogota,Parque Tayrona,15,720,3,0
+Medellin,Santa Marta,13,510,1,0
+Medellin,Parque Tayrona,15,570,2,0
+Eje Cafetero,Cartagena,9,300,1,1
+Eje Cafetero,Santa Marta,12,450,2,0
+Eje Cafetero,Parque Tayrona,14,510,3,0
+Villa de Leyva,Medellin,9,360,1,1
+Villa de Leyva,Eje Cafetero,10,390,1,1
+Villa de Leyva,Cartagena,13,540,2,0
+Cartagena,Parque Tayrona,5,210,1,2
+Santa Marta,Cartagena,3,150,0,2
+Medellin,Bogota,8,300,0,1
+Eje Cafetero,Bogota,7,240,0,1
+Parque Tayrona,Santa Marta,2,60,0,2
+Cartagena,Medellin,10,360,0,1
+Bogota,Villa de Leyva,4,210,0,2
+Medellin,Cartagena,9,330,0,1
+Cartagena,Santa Marta,4,180,0,2
+Santa Marta,Parque Tayrona,3,90,0,2
+Bogota,Eje Cafetero,9,300,0,1
+Eje Cafetero,Medellin,6,210,0,2

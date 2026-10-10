@@ -10,7 +10,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 
 # Leo el dataset con el que voy a trabajar.
-datos = pd.read_csv("dataset_rutas.csv")
+datos = pd.read_csv("Actividad_3_supervisado/dataset_rutas.csv")
 
 # Selecciono las características y la clasificación esperada.
 caracteristicas = ["costo", "tiempo_minutos", "conexiones"]

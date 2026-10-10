@@ -2,215 +2,189 @@
 
 ## 1. Descripción del proyecto
 
-El **Sistema Inteligente de Rutas Turísticas en Colombia** es un proyecto académico desarrollado en Python que integra técnicas de inteligencia artificial para explorar rutas entre destinos turísticos y clasificar conexiones según su conveniencia.
+Este proyecto académico desarrolla un sistema inteligente en Python para explorar conexiones entre destinos turísticos de Colombia e implementar técnicas de inteligencia artificial y aprendizaje automático.
 
-El proyecto combina un algoritmo de búsqueda informada **A\*** con un modelo de **aprendizaje automático supervisado basado en árboles de decisión**.
+El repositorio integra el algoritmo de búsqueda A*, un modelo de aprendizaje supervisado mediante árboles de decisión y una actividad de aprendizaje no supervisado mediante K-Means.
 
-Su propósito es demostrar cómo diferentes técnicas de inteligencia artificial pueden aplicarse a un sistema de exploración y análisis de rutas turísticas.
+Los costos, tiempos y demás datos utilizados en los modelos son simulados y tienen fines exclusivamente académicos. No representan tarifas ni tiempos reales de transporte.
 
-> **Nota:** Los costos, tiempos y datos utilizados en el modelo de aprendizaje automático son simulados y tienen fines exclusivamente académicos. No representan tarifas ni tiempos reales de transporte.
+## 2. Objetivo general
 
-## 2. Objetivos
-
-### Objetivo general
-
-Desarrollar un prototipo en Python que integre algoritmos de búsqueda y aprendizaje automático supervisado para explorar rutas turísticas y clasificar conexiones entre destinos de Colombia.
-
-### Objetivos específicos
-
-- Representar destinos turísticos y sus conexiones mediante una base de conocimiento.
-- Implementar el algoritmo A* para encontrar rutas dentro del grafo definido.
-- Construir un conjunto de datos para entrenar un modelo supervisado.
-- Entrenar un árbol de decisión para clasificar conexiones como recomendables o no recomendables.
-- Evaluar el comportamiento del modelo mediante métricas y escenarios de prueba.
-- Documentar el funcionamiento, los datos y las limitaciones del sistema.
+Implementar técnicas de inteligencia artificial y aprendizaje automático para explorar rutas turísticas, clasificar conexiones e identificar patrones en los datos.
 
 ## 3. Tecnologías utilizadas
 
-- **Python:** lenguaje de programación.
-- **Pandas:** lectura y organización del conjunto de datos.
-- **Scikit-learn:** entrenamiento y evaluación del modelo de aprendizaje automático.
-- **Algoritmo A\*:** búsqueda informada de rutas.
-- **Git y GitHub:** control de versiones y alojamiento del código fuente.
-- **Visual Studio Code:** entorno de desarrollo.
+- Python
+- Pandas
+- Scikit-learn
+- Matplotlib
+- Git y GitHub
+- Visual Studio Code
 
-## 4. Estructura del proyecto
+## 4. Estructura del repositorio
 
 ```text
 Sistema_Rutas_Turisticas_Colombia/
-│
+├── Actividad_3_supervisado/
+│   ├── dataset_rutas.csv
+│   ├── entrenar_modelo.py
+│   └── pruebas_modelo.py
+├── Actividad_4_no_supervisado/
+│   ├── dataset_rutas.csv
+│   ├── agrupamiento_rutas.py
+│   ├── pruebas_agrupamiento.py
+│   ├── visualizar_agrupamiento.py
+│   ├── resultados_agrupamiento.csv
+│   └── grafica_agrupamiento.png
 ├── main.py
 ├── conocimiento.py
 ├── reglas.py
 ├── busqueda.py
 ├── pruebas.py
-│
-├── dataset_rutas.csv
-├── entrenar_modelo.py
-├── pruebas_modelo.py
-│
-├── descripcion_datos.md
-├── pruebas.md
-├── README.md
 ├── requirements.txt
 ├── .gitignore
-│
-└── documentos/
-    └── (documentos académicos y entregables)
+└── README.md
 ```
 
-La carpeta `documentos/` se utilizará para organizar los documentos finales del proyecto, como el mapa conceptual y el PDF de entrega.
+## 5. Componentes del sistema original
 
-## 5. Componentes del sistema
+- `main.py`: permite interactuar con el sistema mediante un menú.
+- `conocimiento.py`: contiene los destinos y las conexiones definidos para el proyecto.
+- `reglas.py`: incluye las comprobaciones de destinos y conexiones.
+- `busqueda.py`: implementa el algoritmo A* para explorar rutas.
+- `pruebas.py`: permite verificar el funcionamiento del sistema de búsqueda.
 
-### 5.1. Base de conocimiento
+## 6. Actividad 3. Aprendizaje automático supervisado
 
-El archivo `conocimiento.py` contiene los destinos turísticos y las conexiones definidas para el prototipo.
+**Carpeta:** `Actividad_3_supervisado/`
 
-Entre los lugares representados se encuentran Bogotá, Villa de Leyva, Medellín, el Eje Cafetero, Cartagena, Santa Marta y el Parque Tayrona.
+Esta actividad utiliza un árbol de decisión mediante `DecisionTreeClassifier` de Scikit-learn para clasificar conexiones turísticas como recomendables o no recomendables.
 
-Las conexiones y sus costos son valores definidos para el ejercicio académico.
-
-### 5.2. Reglas del sistema
-
-El archivo `reglas.py` contiene las comprobaciones utilizadas para validar destinos y conexiones disponibles en la base de conocimiento.
-
-### 5.3. Búsqueda de rutas con A*
-
-El archivo `busqueda.py` implementa el algoritmo A*, que utiliza los costos de las conexiones y una función heurística para explorar posibles recorridos.
-
-El archivo `main.py` permite interactuar con el sistema mediante un menú de opciones.
-
-### 5.4. Aprendizaje automático supervisado
-
-El archivo `entrenar_modelo.py` desarrolla el componente de aprendizaje automático mediante un árbol de decisión de Scikit-learn.
-
-El modelo utiliza las siguientes características:
+Las características utilizadas son:
 
 - `costo`: costo simulado de la conexión.
 - `tiempo_minutos`: tiempo estimado simulado.
 - `conexiones`: cantidad de conexiones adicionales.
 
-La variable objetivo es `recomendable`, codificada de la siguiente manera:
+La variable objetivo es `recomendable`, con valores de 1 para recomendable y 0 para no recomendable.
 
-- `1`: recomendable.
-- `0`: no recomendable.
+**Archivos principales:**
 
-El archivo `pruebas_modelo.py` permite probar el modelo con distintos escenarios de entrada.
+- `dataset_rutas.csv`: conjunto de datos.
+- `entrenar_modelo.py`: entrenamiento y evaluación del modelo.
+- `pruebas_modelo.py`: pruebas del clasificador.
 
-## 6. Conjunto de datos
+**Resultado obtenido:** exactitud del 87,50 % en una ejecución con ocho registros de prueba. Debido al tamaño reducido y al carácter simulado de los datos, este resultado no garantiza el desempeño con información real.
 
-El archivo `dataset_rutas.csv` contiene **30 registros simulados** de conexiones entre destinos turísticos.
+## 7. Actividad 4. Aprendizaje automático no supervisado
 
-El conjunto de datos incluye seis variables:
+**Carpeta:** `Actividad_4_no_supervisado/`
 
-| Variable | Descripción |
-|---|---|
-| `origen` | Destino de partida. |
-| `destino` | Destino de llegada. |
-| `costo` | Costo simulado de la conexión. |
-| `tiempo_minutos` | Tiempo simulado en minutos. |
-| `conexiones` | Número de conexiones adicionales. |
-| `recomendable` | Clasificación objetivo del modelo. |
+Esta actividad implementa K-Means para agrupar conexiones turísticas según sus características, sin utilizar la variable `recomendable` para formar los grupos.
 
-Los datos se dividieron en un conjunto de entrenamiento del 75 % y uno de prueba del 25 %, utilizando una semilla fija para facilitar la reproducibilidad.
+Se utilizan las variables `costo`, `tiempo_minutos` y `conexiones`. Antes del agrupamiento, estas características se estandarizan mediante `StandardScaler`.
 
-Para conocer más detalles, consulta `descripcion_datos.md`.
+El modelo se configura para identificar tres grupos.
 
-## 7. Instalación y ejecución
+**Archivos principales:**
 
-### Requisitos previos
+- `dataset_rutas.csv`: datos utilizados.
+- `agrupamiento_rutas.py`: ejecución del agrupamiento.
+- `pruebas_agrupamiento.py`: pruebas del modelo.
+- `visualizar_agrupamiento.py`: generación de la gráfica.
+- `resultados_agrupamiento.csv`: resultados con los grupos asignados.
+- `grafica_agrupamiento.png`: representación gráfica de los grupos.
 
-Tener instalado Python y Git. Se recomienda utilizar una versión de Python compatible con las dependencias del proyecto.
+**Resultados obtenidos:**
 
-### Instalar las dependencias
+- Tres grupos identificados.
+- Coeficiente Silhouette de 0,520.
+- Cuatro verificaciones automatizadas completadas correctamente.
 
-Desde la terminal, ubicada en la carpeta del proyecto, ejecuta:
+Estos resultados corresponden al conjunto de datos utilizado y no demuestran que los grupos sean categorías óptimas para rutas reales.
+
+## 8. Instalación y ejecución
+
+Se recomienda ejecutar los siguientes comandos desde la raíz del repositorio.
+
+### Preparar el entorno virtual
+
+```bash
+python -m venv .venv
+```
+
+En Windows PowerShell, activar el entorno:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+Instalar las dependencias:
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
-### Ejecutar el sistema de rutas
+### Ejecutar el sistema de búsqueda
 
 ```bash
 python main.py
 ```
 
-Utiliza el menú para explorar las opciones disponibles.
-
-### Entrenar y evaluar el modelo
-
-```bash
-python entrenar_modelo.py
-```
-
-Este comando carga el conjunto de datos, divide los registros, entrena el árbol de decisión y muestra las métricas de evaluación y una predicción de ejemplo.
-
-### Ejecutar las pruebas del modelo
-
-```bash
-python pruebas_modelo.py
-```
-
-### Ejecutar las pruebas del algoritmo de búsqueda
+Ejecutar sus pruebas:
 
 ```bash
 python pruebas.py
 ```
 
-## 8. Resultados obtenidos
+### Ejecutar la actividad supervisada
 
-En la ejecución documentada del modelo supervisado se obtuvieron los siguientes resultados:
+```bash
+python Actividad_3_supervisado/entrenar_modelo.py
+```
 
-| Indicador | Resultado |
-|---|---:|
-| Registros totales | 30 |
-| Registros de entrenamiento | 22 |
-| Registros de prueba | 8 |
-| Exactitud observada | 87,50 % |
+Ejecutar sus pruebas:
 
-La exactitud corresponde a siete predicciones correctas de ocho registros de prueba en esa ejecución.
+```bash
+python Actividad_3_supervisado/pruebas_modelo.py
+```
 
-El modelo también produjo predicciones para tres escenarios adicionales de prueba.
+### Ejecutar la actividad no supervisada
 
-**Interpretación:** estos resultados muestran el funcionamiento del prototipo, pero no demuestran que el sistema pueda recomendar rutas reales con precisión. El conjunto de datos es pequeño, simulado y sus etiquetas fueron definidas manualmente.
+Entrenar el modelo y generar los resultados:
 
-## 9. Pruebas y documentación
+```bash
+python Actividad_4_no_supervisado/agrupamiento_rutas.py
+```
 
-- `pruebas.py`: pruebas del sistema de búsqueda de rutas.
-- `pruebas_modelo.py`: escenarios de prueba del clasificador.
-- `pruebas.md`: documentación de las pruebas realizadas.
-- `descripcion_datos.md`: descripción, preparación y limitaciones del dataset.
+Ejecutar las pruebas:
+
+```bash
+python Actividad_4_no_supervisado/pruebas_agrupamiento.py
+```
+
+Generar la gráfica:
+
+```bash
+python Actividad_4_no_supervisado/visualizar_agrupamiento.py
+```
+
+## 9. Diferencias entre las actividades
+
+| Característica | Supervisado | No supervisado |
+|---|---|---|
+| Algoritmo | Árbol de decisión | K-Means |
+| Objetivo | Clasificar conexiones | Identificar grupos |
+| Utiliza la etiqueta `recomendable` | Sí | No |
+| Resultado | Predicción de categoría | Grupo asignado |
+| Evaluación reportada | Exactitud del 87,50 % | Silhouette de 0,520 |
 
 ## 10. Limitaciones y mejoras futuras
 
-El proyecto es un prototipo académico y presenta las siguientes limitaciones:
+El proyecto utiliza datos simulados y conjuntos de tamaño reducido. Por tanto, sus resultados tienen un alcance educativo y no deben interpretarse como recomendaciones validadas para viajes reales.
 
-- No utiliza datos reales de tarifas o tiempos de transporte.
-- El conjunto de datos es reducido y fue construido con fines educativos.
-- Las clasificaciones fueron definidas manualmente.
-- La heurística de búsqueda utiliza una representación simplificada y no debe interpretarse como una distancia geográfica real.
-- La evaluación del modelo se realiza sobre una muestra pequeña.
+Como mejoras futuras se propone incorporar datos verificables de transporte, ampliar los conjuntos de datos y evaluar los modelos con información real.
 
-Como mejoras futuras se propone incorporar fuentes verificables de información, ampliar el dataset, definir criterios de recomendación sustentados y desarrollar una interfaz que facilite la consulta de rutas.
+## 11. Alcance académico
 
-## 11. Integrantes
-
-Proyecto desarrollado de manera colaborativa en el marco de la asignatura **Inteligencia Artificial**.
-
-- Integrante 1: [Nombre completo]
-- Integrante 2: [Nombre completo]
-- Integrante 3: [Nombre completo]
-- Integrante 4: [Nombre completo, si aplica]
-
-## 12. Entregables académicos
-
-- Repositorio GitHub: [Agregar enlace del repositorio]
-- Video de sustentación: [Agregar enlace del video]
-- Mapa conceptual: [Agregar enlace o ubicación del archivo PDF]
-- Documento de pruebas: `pruebas.md` y su versión PDF, cuando esté generada.
-
-## 13. Licencia y uso
-
-Este proyecto se desarrolló con fines académicos. Los datos simulados y los resultados deben interpretarse dentro del alcance educativo del prototipo.
+El proyecto permite explorar técnicas de búsqueda, clasificación supervisada y agrupamiento no supervisado, además de practicar la preparación de datos, el entrenamiento de modelos, las pruebas y la visualización de resultados.

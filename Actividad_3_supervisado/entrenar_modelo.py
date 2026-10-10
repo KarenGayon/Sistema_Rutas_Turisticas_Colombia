@@ -13,7 +13,7 @@ from sklearn.metrics import accuracy_score, classification_report
 
 
 # Leo los datos que guardé en el archivo CSV.
-datos = pd.read_csv("dataset_rutas.csv")
+datos = pd.read_csv("Actividad_3_supervisado/dataset_rutas.csv")
 
 
 # Muestro una parte de los datos para verificar
